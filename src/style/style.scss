@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+$Bright-Blue: hsl(220, 98%, 61%);
+$Check-Background: linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%));
+$Very-Light-Gray: hsl(0, 0%, 98%);
+$Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+$Light-Grayish-Blue: hsl(233, 11%, 84%);
+$Dark-Grayish-Blue: hsl(236, 9%, 61%);
+$Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+$Very-Dark-Blue: hsl(235, 21%, 11%);
+$Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+$Light-Grayish-Blue: hsl(234, 39%, 85%);
+$Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+$Dark-Grayish-Blue: hsl(234, 11%, 52%);
+$Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+$Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+@mixin dFlex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin textTemplate($fontSize, $fontWeight, $color) {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $color;
+}
+
+body {
+    height: 100dvh;
+    background: url(../assets/bg-desktop-light.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include dFlex(unset, center, unset);
+}
+
+main {
+    width: 540px;
+    border: 1px solid black;
+    margin-top: 5rem;
+}
+
+.header {
+    @include dFlex(unset, space-between, unset);
+    margin-bottom: 2rem;
+    &-title {
+        @include textTemplate(2.2rem, 700, white);
+        letter-spacing: 1rem;
+    }
+    &-switcher {
+        width: 2rem;
+        opacity: 0.2;
+    }
+    &-icon {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        transform: translateX(calc(540px - 2rem));
+    }
+}
