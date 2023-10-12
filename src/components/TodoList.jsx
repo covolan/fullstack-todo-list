@@ -1,35 +1,25 @@
+import icon from "../assets/icon-check.svg";
+import { StateProvider } from "../App";
+import { useContext } from "react";
+
 export default function TodoList() {
+  const context = useContext(StateProvider);
+  const { todoList } = context;
+
   return (
     <>
       <ul className="todo__list">
-        <li className="todo__list-item">
-          <div className="checkbox-div">
-            {" "}
-            <input type="checkbox" className="checkbox-round" />{" "}
-          </div>
-          Item 1
-        </li>
-        <li className="todo__list-item">
-          <div className="checkbox-div">
-            {" "}
-            <input type="checkbox" className="checkbox-round" />{" "}
-          </div>
-          Item 2
-        </li>
-        <li className="todo__list-item">
-          <div className="checkbox-div">
-            {" "}
-            <input type="checkbox" className="checkbox-round" />{" "}
-          </div>
-          Item 3
-        </li>
-        <li className="todo__list-item">
-          <div className="checkbox-div">
-            {" "}
-            <input type="checkbox" className="checkbox-round" />{" "}
-          </div>
-          Item 4
-        </li>
+        {todoList.map((item) => {
+          return (
+            <li key={crypto.randomUUID()} className="todo__list-item">
+              <div className="checkbox-div">
+                <img src={icon} />
+                <input type="checkbox" className="checkbox-round" />
+              </div>
+              {item}
+            </li>
+          );
+        })}
         <li className="todo__list-bottom">
           <span className="todo__list-bottom-ileft">X items left</span>
           <div>

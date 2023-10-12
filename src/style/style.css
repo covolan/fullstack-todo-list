@@ -22,8 +22,8 @@ main {
   margin-top: 5rem;
 }
 
-.unselected {
-  opacity: 0;
+.selected {
+  display: block !important;
 }
 
 .header {
@@ -41,7 +41,7 @@ main {
 }
 .header-switcher {
   width: 2rem;
-  opacity: 0;
+  opacity: 0.5;
 }
 .header-icon {
   width: 2rem;
@@ -75,6 +75,14 @@ main {
 .todo__input-icon {
   display: none;
   position: absolute;
+  cursor: pointer;
+  transform: translateX(40%) translateY(65%);
+}
+
+.icon {
+  display: none;
+  position: absolute;
+  cursor: pointer;
   transform: translateX(40%) translateY(65%);
 }
 
@@ -101,7 +109,7 @@ main {
 }
 .checkbox-round:hover {
   border: none;
-  background: radial-gradient(white 0 62%, transparent 62% 100%);
+  background: radial-gradient(white 0 60%, transparent 60% 100%);
 }
 .checkbox-round:hover:checked {
   background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
