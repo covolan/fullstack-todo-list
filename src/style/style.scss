@@ -1,69 +1,159 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
-$Bright-Blue: hsl(220, 98%, 61%);
-$Check-Background: linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%));
-$Very-Light-Gray: hsl(0, 0%, 98%);
-$Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
-$Light-Grayish-Blue: hsl(233, 11%, 84%);
-$Dark-Grayish-Blue: hsl(236, 9%, 61%);
-$Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
-$Very-Dark-Blue: hsl(235, 21%, 11%);
-$Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
-$Light-Grayish-Blue: hsl(234, 39%, 85%);
-$Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
-$Dark-Grayish-Blue: hsl(234, 11%, 52%);
-$Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
-$Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+$bright-blue: hsl(220, 98%, 61%);
+$check-background: linear-gradient(
+  135deg,
+  hsl(192, 100%, 67%),
+  hsl(280, 87%, 65%)
+);
+$very-light-gray: hsl(0, 0%, 98%);
+$very-light-grayish-blue: hsl(236, 33%, 92%);
+$light-grayish-blue1: hsl(233, 11%, 84%);
+$dark-grayish-blue1: hsl(236, 9%, 61%);
+$very-dark-grayish-blue: hsl(235, 19%, 35%);
+$very-dark-blue: hsl(235, 21%, 11%);
+$very-dark-desaturated-blue: hsl(235, 24%, 19%);
+$light-grayish-blue: hsl(234, 39%, 85%);
+$light-grayish-blue-hover: hsl(236, 33%, 92%);
+$dark-grayish-blue: hsl(234, 11%, 52%);
+$very-dark-grayish-blue1: hsl(233, 14%, 35%);
+$very-dark-grayish-blue: hsl(237, 14%, 26%);
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Josefin Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 @mixin dFlex($direction, $justify, $align) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
 }
 
 @mixin textTemplate($fontSize, $fontWeight, $color) {
-    font-size: $fontSize;
-    font-weight: $fontWeight;
-    color: $color;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  color: $color;
 }
 
 body {
-    height: 100dvh;
-    background: url(../assets/bg-desktop-light.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    @include dFlex(unset, center, unset);
+  height: 100dvh;
+  background: url(../assets/bg-desktop-light.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include dFlex(unset, center, unset);
 }
 
 main {
-    width: 540px;
-    border: 1px solid black;
-    margin-top: 5rem;
+  width: 540px;
+  margin-top: 5rem;
+}
+
+.unselected {
+  opacity: 0;
 }
 
 .header {
-    @include dFlex(unset, space-between, unset);
-    margin-bottom: 2rem;
-    &-title {
-        @include textTemplate(2.2rem, 700, white);
-        letter-spacing: 1rem;
+  @include dFlex(unset, space-between, unset);
+  margin-bottom: 2rem;
+  &-title {
+    @include textTemplate(2.2rem, 700, white);
+    letter-spacing: 1rem;
+  }
+  &-switcher {
+    width: 2rem;
+    opacity: 0;
+  }
+  &-icon {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    transform: translateX(calc(540px - 2rem));
+  }
+}
+
+.todo__input {
+  @include dFlex(unset, unset, center);
+  background-color: white;
+  padding: 0.7rem;
+  box-shadow: 0 0px 8px $light-grayish-blue1;
+  border-radius: 0.3rem;
+  &-input {
+    @include textTemplate(1.2rem, 400, unset);
+    border: none;
+    padding: 0.6rem 0.5rem 0.5rem 0.5rem;
+    width: 85%;
+    vertical-align: middle;
+    &:focus {
+      outline: none;
     }
-    &-switcher {
-        width: 2rem;
-        opacity: 0.2;
+  }
+  &-icon {
+    display: none;
+    position: absolute;
+    transform: translateX(40%) translateY(65%);
+  }
+}
+
+.checkbox-div {
+  background: $check-background;
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
+.checkbox-round {
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 1px solid $dark-grayish-blue1;
+  border-radius: 50%;
+  appearance: none;
+  vertical-align: middle;
+  cursor: pointer;
+  background: white;
+  &:checked {
+    background: $check-background;
+  }
+  &:hover {
+    &:checked {
+      background: $check-background;
+      border: 1px solid $dark-grayish-blue1;
     }
-    &-icon {
-        width: 2rem;
-        height: 2rem;
-        position: absolute;
-        transform: translateX(calc(540px - 2rem));
+    border: none;
+    background: radial-gradient(white 0 62%, transparent 62% 100%);
+  }
+}
+
+.todo__list {
+  @include textTemplate(1.2rem, unset, $very-dark-blue);
+  list-style-type: none;
+  box-shadow: 0 5px 50px $light-grayish-blue1;
+  background-color: white;
+  margin-top: 1.5rem;
+  border-radius: 0.3rem;
+  &-item {
+    @include dFlex(unset, unset, center);
+    padding: 1.2rem 0 1.2rem 0.7rem;
+    border-bottom: 1px solid $light-grayish-blue1;
+  }
+  &-bottom {
+    @include dFlex(unset, space-between, center);
+    @include textTemplate(1rem, 400, $dark-grayish-blue);
+    padding: 1rem;
+    &-clear {
+      cursor: pointer;
     }
+  }
+}
+
+.filter {
+  margin: 0 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.active {
+  color: $bright-blue;
 }

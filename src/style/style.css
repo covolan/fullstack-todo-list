@@ -19,8 +19,11 @@ body {
 
 main {
   width: 540px;
-  border: 1px solid black;
   margin-top: 5rem;
+}
+
+.unselected {
+  opacity: 0;
 }
 
 .header {
@@ -38,11 +41,111 @@ main {
 }
 .header-switcher {
   width: 2rem;
-  opacity: 0.2;
+  opacity: 0;
 }
 .header-icon {
   width: 2rem;
   height: 2rem;
   position: absolute;
   transform: translateX(calc(540px - 2rem));
+}
+
+.todo__input {
+  display: flex;
+  flex-direction: unset;
+  justify-content: unset;
+  align-items: center;
+  background-color: white;
+  padding: 0.7rem;
+  box-shadow: 0 0px 8px hsl(233, 11%, 84%);
+  border-radius: 0.3rem;
+}
+.todo__input-input {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: unset;
+  border: none;
+  padding: 0.6rem 0.5rem 0.5rem 0.5rem;
+  width: 85%;
+  vertical-align: middle;
+}
+.todo__input-input:focus {
+  outline: none;
+}
+.todo__input-icon {
+  display: none;
+  position: absolute;
+  transform: translateX(40%) translateY(65%);
+}
+
+.checkbox-div {
+  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
+.checkbox-round {
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 1px solid hsl(236, 9%, 61%);
+  border-radius: 50%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  vertical-align: middle;
+  cursor: pointer;
+  background: white;
+}
+.checkbox-round:checked {
+  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+.checkbox-round:hover {
+  border: none;
+  background: radial-gradient(white 0 62%, transparent 62% 100%);
+}
+.checkbox-round:hover:checked {
+  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border: 1px solid hsl(236, 9%, 61%);
+}
+
+.todo__list {
+  font-size: 1.2rem;
+  font-weight: unset;
+  color: hsl(235, 21%, 11%);
+  list-style-type: none;
+  box-shadow: 0 5px 50px hsl(233, 11%, 84%);
+  background-color: white;
+  margin-top: 1.5rem;
+  border-radius: 0.3rem;
+}
+.todo__list-item {
+  display: flex;
+  flex-direction: unset;
+  justify-content: unset;
+  align-items: center;
+  padding: 1.2rem 0 1.2rem 0.7rem;
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+}
+.todo__list-bottom {
+  display: flex;
+  flex-direction: unset;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: hsl(234, 11%, 52%);
+  padding: 1rem;
+}
+.todo__list-bottom-clear {
+  cursor: pointer;
+}
+
+.filter {
+  margin: 0 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.active {
+  color: hsl(220, 98%, 61%);
 }/*# sourceMappingURL=style.css.map */
