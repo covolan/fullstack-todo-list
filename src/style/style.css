@@ -105,14 +105,18 @@ main {
   background: white;
 }
 .checkbox-round:checked {
-  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background: url(../assets/icon-check.svg), linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 .checkbox-round:hover {
   border: none;
   background: radial-gradient(white 0 60%, transparent 60% 100%);
 }
 .checkbox-round:hover:checked {
-  background: linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background: url(../assets/icon-check.svg), linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   border: 1px solid hsl(236, 9%, 61%);
 }
 
@@ -132,7 +136,14 @@ main {
   justify-content: unset;
   align-items: center;
   padding: 1.2rem 0 1.2rem 0.7rem;
+  color: hsl(235, 24%, 19%);
   border-bottom: 1px solid hsl(233, 11%, 84%);
+  cursor: move;
+}
+.todo__list-item-icon {
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 1.5rem;
 }
 .todo__list-bottom {
   display: flex;
@@ -146,6 +157,11 @@ main {
 }
 .todo__list-bottom-clear {
   cursor: pointer;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%);
 }
 
 .filter {

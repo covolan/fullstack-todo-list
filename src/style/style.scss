@@ -122,11 +122,15 @@ main {
   cursor: pointer;
   background: white;
   &:checked {
-    background: $check-background;
+    background: url(../assets/icon-check.svg), $check-background;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
   }
   &:hover {
     &:checked {
-      background: $check-background;
+      background: url(../assets/icon-check.svg), $check-background;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
       border: 1px solid $dark-grayish-blue1;
     }
     border: none;
@@ -144,7 +148,14 @@ main {
   &-item {
     @include dFlex(unset, unset, center);
     padding: 1.2rem 0 1.2rem 0.7rem;
+    color: $very-dark-desaturated-blue;
     border-bottom: 1px solid $light-grayish-blue1;
+    cursor: move;
+    &-icon {
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: 1.5rem;
+    }
   }
   &-bottom {
     @include dFlex(unset, space-between, center);
@@ -154,6 +165,11 @@ main {
       cursor: pointer;
     }
   }
+}
+
+.checked {
+  text-decoration: line-through;
+  color: $dark-grayish-blue;
 }
 
 .filter {

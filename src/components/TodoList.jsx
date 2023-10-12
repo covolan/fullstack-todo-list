@@ -1,22 +1,46 @@
-import icon from "../assets/icon-check.svg";
 import { StateProvider } from "../App";
 import { useContext } from "react";
+import iconCross from "../assets/icon-cross.svg";
 
 export default function TodoList() {
   const context = useContext(StateProvider);
-  const { todoList } = context;
+  const { todoList, settodoList } = context;
+
+  const checkItem = (e) => {
+    const liItem = e.target.parentElement.parentElement;
+    if (e.target.checked) {
+      liItem.classList.add("checked");      
+    } else {
+      liItem.classList.remove("checked");
+    }
+  };
 
   return (
     <>
       <ul className="todo__list">
         {todoList.map((item) => {
           return (
-            <li key={crypto.randomUUID()} className="todo__list-item">
+            <li
+              key={crypto.randomUUID()}
+              id={crypto.randomUUID()}
+              draggable
+              className="todo__list-item"
+            >
               <div className="checkbox-div">
-                <img src={icon} />
-                <input type="checkbox" className="checkbox-round" />
+                <input
+                  type="checkbox"
+                  onClick={checkItem}
+                  className="checkbox-round"
+                />
               </div>
-              {item}
+              {item.value}
+              <img
+                src={iconCross}
+                onClick={() => {
+                  settodoList(todoList.filter((elem) => elem.value != item.value));
+                }}
+                className="todo__list-item-icon"
+              />
             </li>
           );
         })}
